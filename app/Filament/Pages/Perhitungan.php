@@ -6,6 +6,7 @@ use App\Models\Alternative;
 use App\Models\Attribute;
 use App\Models\Criteria;
 use App\Models\Score;
+use Dompdf\Dompdf;
 use Filament\Actions\Action;
 use Filament\Actions\CreateAction;
 use Filament\Pages\Page;
@@ -41,6 +42,9 @@ class Perhitungan extends Page implements HasTable
             Action::make('create')
                 ->label('Create New')
                 ->url('/app/scores/create'), // Adjust the route name as necessary
+            Action::make('exportPdf')
+                ->label('Export PDF')
+                ->action('exportPdf'),
         ];
     }
 
@@ -132,5 +136,26 @@ class Perhitungan extends Page implements HasTable
     function sortByValue($a, $b)
     {
         return $b['value'] <=> $a['value']; // Sort in descending order
+    }
+
+
+    public function exportPdf()
+    {
+        $htmlContent = view('print.perhitungan', ['data' => [
+            'scores' =>  Score::groupBy('parent_id')->get(),
+            'criterias' =>  Criteria::all(),
+            'perhitungan' => $this->calculateSAW()
+        ]])->render();
+        // Convert HTML to PDF
+        $dompdf = new Dompdf();
+        $pdf = $dompdf->loadHTML($htmlContent);
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to browser (force download)
+        return response()->streamDownload(function () use ($dompdf) {
+            echo $dompdf->output();
+        }, 'perhitungan.pdf');
     }
 }

@@ -33,7 +33,7 @@ class ListScores extends ListRecords
                         Score::create($item);
                     }
                 }
-            })
+            }),
         ];
     }
 }
