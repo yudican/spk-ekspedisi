@@ -65,143 +65,203 @@
 </head>
 
 <body>
-  <div class="container">
-    <!-- Header -->
-    <div class="header">
-      <img src="{{ asset('logo.png') }}" alt="Logo" class="logo-left">
-      <h2>Penerapan Metode Simple
-        Additive Weighting (SAW) <br> Dalam Optimalisasi Pengiriman Paket <br> Pada
-        CV Jasa From Jawa (JFJ) Berbasis PHP</h2>
-      <p>Jl. Mawar No 1233</p>
-      <hr>
-      <div class="title" style="text-align: center;">
-        <h3 style="margin-bottom:0;"><u>PERHITUNGAN</u></h3>
-        {{-- <p style="margin-bottom:0;">No: 01/TRF/KRHSPKP/2023</p> --}}
+  <div>
+    <div style="page-break-after: always;" class="container">
+      <div class="header">
+        <img src="{{ asset('logo.jpeg') }}" alt="Logo" class="logo-left">
+        <h2>CV JASA FROM JAWA</h2>
+        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari, Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
+        <hr>
+        <div class="title" style="text-align: center;">
+          <h3 style="margin-bottom:0;"><u>PERHITUNGAN</u></h3>
+          {{-- <p style="margin-bottom:0;">No: 01/TRF/KRHSPKP/2023</p> --}}
+        </div>
+      </div>
+      {{-- Header --}}
+      <div class="content">
+        {{-- Content --}}
+        <div>
+          <table width="100%" border="1" style="border-collapse: collapse; border-color: #000;">
+            <thead>
+              <tr>
+                <th>Nama Alternative</th>
+                @foreach ($data['criterias'] as $criteria)
+                <th>{{ $criteria->name }}</th>
+                @endforeach
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($data['scores'] as $key => $score)
+              <tr>
+                <td align="center">{{ $score->alternative->name }}</td>
+                @foreach (\App\Models\Score::where('parent_id',$score->parent_id)->get() as $child)
+                <td align="center">{{ $child->attribute->name }}</td>
+                @endforeach
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {{-- Footer --}}
+      <div class="signature">
+        <p>Jakrta, {{date('l, d F Y')}}</p>
+        <br>
+        <br>
+        <p>Admin<br>
       </div>
     </div>
-
-    <!-- Title -->
-
-    <!-- Content -->
-    <div class="content">
-      <div>
+    {{-- data 2 --}}
+    <div style="page-break-after: always;" class="container">
+      <div class="header">
+        <img src="{{ asset('logo.jpeg') }}" alt="Logo" class="logo-left">
+        <h2>CV JASA FROM JAWA</h2>
+        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari, Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
+        <hr>
+        <div class="title" style="text-align: center;">
+          <h3 style="margin-bottom:0;"><u>PERHITUNGAN</u></h3>
+          {{-- <p style="margin-bottom:0;">No: 01/TRF/KRHSPKP/2023</p> --}}
+        </div>
+      </div>
+      {{-- Header --}}
+      <div class="content">
+        {{-- Content --}}
         <div>
+          <h1>Data Perhitungan</h1>
           <div>
-            <div>
-              <table width="100%" border="1" style="border-collapse: collapse; border-color: #000;">
-                <thead>
-                  <tr>
-                    <th>Nama Alternative</th>
-                    @foreach ($data['criterias'] as $criteria)
-                    <th>{{ $criteria->name }}</th>
-                    @endforeach
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($data['scores'] as $key => $score)
-                  <tr>
-                    <td align="center">{{ $score->alternative->name }}</td>
-                    @foreach (\App\Models\Score::where('parent_id',$score->parent_id)->get() as $child)
-                    <td align="center">{{ $child->attribute->name }}</td>
-                    @endforeach
-                  </tr>
+            <table width="100%" border="1" style="border-collapse: collapse; border-color: #000;">
+              <thead>
+                <tr>
+                  <th>Nama Alternative</th>
+                  @foreach ($data['criterias'] as $criteria)
+                  <th>{{ $criteria->name }}</th>
                   @endforeach
-                </tbody>
-              </table>
-            </div>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($data['scores'] as $key => $score)
+                <tr>
+                  <td align="center">{{ $score->alternative->name }}</td>
+                  @foreach (\App\Models\Score::where('parent_id',$score->parent_id)->get() as $child)
+                  <td align="center">{{ $child->attribute->score }}</td>
+                  @endforeach
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
 
-      <div>
-        <h1>Data Perhitungan</h1>
-        <div>
-          <table width="100%" border="1" style="border-collapse: collapse; border-color: #000;">
-            <thead>
-              <tr>
-                <th>Nama Alternative</th>
-                @foreach ($data['criterias'] as $criteria)
-                <th>{{ $criteria->name }}</th>
-                @endforeach
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($data['scores'] as $key => $score)
-              <tr>
-                <td align="center">{{ $score->alternative->name }}</td>
-                @foreach (\App\Models\Score::where('parent_id',$score->parent_id)->get() as $child)
-                <td align="center">{{ $child->attribute->score }}</td>
-                @endforeach
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
+      {{-- Footer --}}
+      <div class="signature">
+        <p>Jakrta, {{date('l, d F Y')}}</p>
+        <br>
+        <br>
+        <p>Admin<br>
       </div>
-
-      <div>
-        <h1>Normalisasi</h1>
-        <div>
-          <table width="100%" border="1" style="border-collapse: collapse; border-color: #000;">
-            <thead>
-              <tr>
-                <th>Nama Alternative</th>
-                @foreach ($data['criterias'] as $criteria)
-                <th>{{ $criteria->name }}</th>
-                @endforeach
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($data['scores'] as $key => $score)
-              <tr>
-                <td align="center">{{ $score->alternative->name }}</td>
-                @foreach (\App\Models\Score::where('parent_id',$score->parent_id)->get() as $child)
-                <td align="center">{{ $data['perhitungan']['normalizedMatrix'][$score->id][$child->attribute_id]['value'] }}</td>
-                @endforeach
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div>
-        <h1>Hasil Perhitungan</h1>
-        <div>
-          <table width="100%" border="1" style="border-collapse: collapse; border-color: #000;">
-            <thead>
-              <tr>
-                <th>Nama Alternative</th>
-                @foreach ($data['criterias'] as $criteria)
-                <th>{{ $criteria->name }}</th>
-                @endforeach
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($data['scores'] as $key => $score)
-              <tr>
-                <td align="center">{{ $score->alternative->name }}</td>
-                @foreach (\App\Models\Score::where('parent_id',$score->parent_id)->get() as $key => $child)
-                <td align="center"> {{ $data['perhitungan']['scores_maatrics'][$score->id][$key]['value'] }}</td>
-                @endforeach
-              </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
-      </div>
-
     </div>
+    {{-- data 3 --}}
+    <div style="page-break-after: always;" class="container">
+      <div class="header">
+        <img src="{{ asset('logo.jpeg') }}" alt="Logo" class="logo-left">
+        <h2>CV JASA FROM JAWA</h2>
+        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari, Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
+        <hr>
+        <div class="title" style="text-align: center;">
+          <h3 style="margin-bottom:0;"><u>PERHITUNGAN</u></h3>
+          {{-- <p style="margin-bottom:0;">No: 01/TRF/KRHSPKP/2023</p> --}}
+        </div>
+      </div>
+      {{-- Header --}}
+      <div class="content">
+        {{-- Content --}}
+        <div>
+          <h1>Normalisasi</h1>
+          <div>
+            <table width="100%" border="1" style="border-collapse: collapse; border-color: #000;">
+              <thead>
+                <tr>
+                  <th>Nama Alternative</th>
+                  @foreach ($data['criterias'] as $criteria)
+                  <th>{{ $criteria->name }}</th>
+                  @endforeach
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($data['scores'] as $key => $score)
+                <tr>
+                  <td align="center">{{ $score->alternative->name }}</td>
+                  @foreach (\App\Models\Score::where('parent_id',$score->parent_id)->get() as $child)
+                  <td align="center">{{ $data['perhitungan']['normalizedMatrix'][$score->id][$child->attribute_id]['value'] }}</td>
+                  @endforeach
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
-    <!-- Signature -->
-    <div class="signature">
-      <p>Alamat, {{date('d F Y')}}</p>
-      <br>
-      <br>
-      <p>Nama Mahasiswa<br>
-        NIM. 19808121001</p>
+      {{-- Footer --}}
+      <div class="signature">
+        <p>Jakrta, {{date('l, d F Y')}}</p>
+        <br>
+        <br>
+        <p>Admin<br>
+      </div>
     </div>
-  </div>
+    {{-- data 4 --}}
+    <div class="container">
+      <div class="header">
+        <img src="{{ asset('logo.jpeg') }}" alt="Logo" class="logo-left">
+        <h2>CV JASA FROM JAWA</h2>
+        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari, Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
+        <hr>
+        <div class="title" style="text-align: center;">
+          <h3 style="margin-bottom:0;"><u>PERHITUNGAN</u></h3>
+          {{-- <p style="margin-bottom:0;">No: 01/TRF/KRHSPKP/2023</p> --}}
+        </div>
+      </div>
+      {{-- Header --}}
+      <div class="content">
+        {{-- Content --}}
+        <div>
+          <h1>Hasil Perhitungan</h1>
+          <div>
+            <table width="100%" border="1" style="border-collapse: collapse; border-color: #000;">
+              <thead>
+                <tr>
+                  <th>Nama Alternative</th>
+                  @foreach ($data['criterias'] as $criteria)
+                  <th>{{ $criteria->name }}</th>
+                  @endforeach
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($data['scores'] as $key => $score)
+                <tr>
+                  <td align="center">{{ $score->alternative->name }}</td>
+                  @foreach (\App\Models\Score::where('parent_id',$score->parent_id)->get() as $key => $child)
+                  <td align="center"> {{ $data['perhitungan']['scores_maatrics'][$score->id][$key]['value'] }}</td>
+                  @endforeach
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      {{-- Footer --}}
+      <div class="signature">
+        <p>Jakrta, {{date('l, d F Y')}}</p>
+        <br>
+        <br>
+        <p>Admin<br>
+      </div>
+    </div>
 </body>
 
 </html>

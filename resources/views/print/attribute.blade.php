@@ -68,11 +68,9 @@
   <div class="container">
     <!-- Header -->
     <div class="header">
-      <img src="{{ asset('logo.png') }}" alt="Logo" class="logo-left">
-      <h2>Penerapan Metode Simple
-        Additive Weighting (SAW) <br> Dalam Optimalisasi Pengiriman Paket <br> Pada
-        CV Jasa From Jawa (JFJ) Berbasis PHP</h2>
-      <p>Jl. Mawar No 1233</p>
+      <img src="{{ asset('logo.jpeg') }}" alt="Logo" class="logo-left">
+      <h2>CV JASA FROM JAWA</h2>
+      <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari, Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
       <hr>
       <div class="title" style="text-align: center;">
         <h3 style="margin-bottom:0;"><u>DATA ATRIBUT</u></h3>
@@ -104,11 +102,10 @@
 
     <!-- Signature -->
     <div class="signature">
-      <p>Alamat, {{date('d F Y')}}</p>
+      <p>Jakrta, {{date('l, d F Y')}}</p>
       <br>
       <br>
-      <p>Nama Mahasiswa<br>
-        NIM. 19808121001</p>
+      <p>Admin<br>
     </div>
   </div>
 </body>
