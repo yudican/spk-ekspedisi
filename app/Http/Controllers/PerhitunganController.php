@@ -1,54 +1,22 @@
 <?php
 
-namespace App\Filament\Pages;
+namespace App\Http\Controllers;
 
-use App\Models\Alternative;
 use App\Models\Attribute;
 use App\Models\Criteria;
 use App\Models\Score;
-use Dompdf\Dompdf;
-use Filament\Actions\Action;
-use Filament\Actions\CreateAction;
-use Filament\Pages\Page;
-use Filament\Tables\Concerns\InteractsWithTable;
-use Filament\Tables\Contracts\HasTable;
-use Illuminate\Support\Facades\URL;
+use Illuminate\Http\Request;
 
-class Perhitungan extends Page implements HasTable
+class PerhitunganController extends Controller
 {
-    use InteractsWithTable;
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    protected static string $view = 'filament.pages.perhitungan';
-    protected static ?string $model = Score::class;
-    protected static ?string $navigationGroup = 'Hasil';
-    public $data;
-
-    public function getTableQuery()
+    public function index()
     {
-        return Score::query();
-    }
-
-    public function mount()
-    {
-        $this->data = [
+        return view('print.perhitungan', ['data' => [
             'scores' =>  Score::groupBy('parent_id')->get(),
             'criterias' =>  Criteria::all(),
             'perhitungan' => $this->calculateSAW()
-        ];
+        ]]);
     }
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Action::make('create')
-                ->label('Create New')
-                ->url('/app/scores/create'), // Adjust the route name as necessary
-            Action::make('exportPdf')
-                ->label('Export PDF')
-                ->url('/app/perhitungan/hasil')
-        ];
-    }
-
     public function calculateSAW()
     {
         $scores = Score::groupBy('parent_id')->get();
@@ -129,34 +97,5 @@ class Perhitungan extends Page implements HasTable
             'normalizedMatrix' => $normalizedMatrix,
             'scores_maatrics' => $scores_maatrics,
         ];
-    }
-
-
-
-    // Function to sort by 'value'
-    function sortByValue($a, $b)
-    {
-        return $b['value'] <=> $a['value']; // Sort in descending order
-    }
-
-
-    public function exportPdf()
-    {
-        $htmlContent = view('print.perhitungan', ['data' => [
-            'scores' =>  Score::groupBy('parent_id')->get(),
-            'criterias' =>  Criteria::all(),
-            'perhitungan' => $this->calculateSAW()
-        ]])->render();
-        // Convert HTML to PDF
-        $dompdf = new Dompdf();
-        $pdf = $dompdf->loadHTML($htmlContent);
-
-        // Render the HTML as PDF
-        $dompdf->render();
-
-        // Output the generated PDF to browser (force download)
-        return response()->streamDownload(function () use ($dompdf) {
-            echo $dompdf->output();
-        }, 'perhitungan.pdf');
     }
 }

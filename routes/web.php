@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\PerhitunganController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect('login');
 });
+
+Route::get('app/perhitungan/hasil', [PerhitunganController::class, 'index'])->name('perhitungan');
 
 
 Route::middleware([

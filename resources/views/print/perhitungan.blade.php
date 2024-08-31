@@ -17,6 +17,7 @@
     .container {
       width: 93%;
       padding: 40px;
+      position: relative;
     }
 
     .header {
@@ -28,7 +29,7 @@
       width: 80px;
       position: absolute;
       left: 30px;
-      top: 60px;
+      top: 50px;
     }
 
     .header .logo-left {
@@ -70,10 +71,10 @@
       <div class="header">
         <img src="{{ asset('logo.jpeg') }}" alt="Logo" class="logo-left">
         <h2>CV JASA FROM JAWA</h2>
-        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari, Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
+        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari <br /> Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
         <hr>
         <div class="title" style="text-align: center;">
-          <h3 style="margin-bottom:0;"><u>PERHITUNGAN</u></h3>
+          <h3 style="margin-bottom:0;"><u>LAPORAN PERHITUNGAN</u></h3>
           {{-- <p style="margin-bottom:0;">No: 01/TRF/KRHSPKP/2023</p> --}}
         </div>
       </div>
@@ -106,7 +107,7 @@
 
       {{-- Footer --}}
       <div class="signature">
-        <p>Jakrta, {{date('l, d F Y')}}</p>
+        <p>Jakarta, {{date('l, d F Y')}}</p>
         <br>
         <br>
         <p>Admin<br>
@@ -117,10 +118,10 @@
       <div class="header">
         <img src="{{ asset('logo.jpeg') }}" alt="Logo" class="logo-left">
         <h2>CV JASA FROM JAWA</h2>
-        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari, Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
+        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari <br /> Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
         <hr>
         <div class="title" style="text-align: center;">
-          <h3 style="margin-bottom:0;"><u>PERHITUNGAN</u></h3>
+          <h3 style="margin-bottom:0;"><u>LAPORAN PERHITUNGAN</u></h3>
           {{-- <p style="margin-bottom:0;">No: 01/TRF/KRHSPKP/2023</p> --}}
         </div>
       </div>
@@ -156,7 +157,7 @@
 
       {{-- Footer --}}
       <div class="signature">
-        <p>Jakrta, {{date('l, d F Y')}}</p>
+        <p>Jakarta, {{date('l, d F Y')}}</p>
         <br>
         <br>
         <p>Admin<br>
@@ -167,10 +168,10 @@
       <div class="header">
         <img src="{{ asset('logo.jpeg') }}" alt="Logo" class="logo-left">
         <h2>CV JASA FROM JAWA</h2>
-        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari, Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
+        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari <br /> Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
         <hr>
         <div class="title" style="text-align: center;">
-          <h3 style="margin-bottom:0;"><u>PERHITUNGAN</u></h3>
+          <h3 style="margin-bottom:0;"><u>LAPORAN PERHITUNGAN</u></h3>
           {{-- <p style="margin-bottom:0;">No: 01/TRF/KRHSPKP/2023</p> --}}
         </div>
       </div>
@@ -206,7 +207,7 @@
 
       {{-- Footer --}}
       <div class="signature">
-        <p>Jakrta, {{date('l, d F Y')}}</p>
+        <p>Jakarta, {{date('l, d F Y')}}</p>
         <br>
         <br>
         <p>Admin<br>
@@ -217,10 +218,10 @@
       <div class="header">
         <img src="{{ asset('logo.jpeg') }}" alt="Logo" class="logo-left">
         <h2>CV JASA FROM JAWA</h2>
-        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari, Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
+        <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari <br /> Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
         <hr>
         <div class="title" style="text-align: center;">
-          <h3 style="margin-bottom:0;"><u>PERHITUNGAN</u></h3>
+          <h3 style="margin-bottom:0;"><u>LAPORAN PERHITUNGAN</u></h3>
           {{-- <p style="margin-bottom:0;">No: 01/TRF/KRHSPKP/2023</p> --}}
         </div>
       </div>
@@ -256,7 +257,7 @@
 
       {{-- Footer --}}
       <div class="signature">
-        <p>Jakrta, {{date('l, d F Y')}}</p>
+        <p>Jakarta, {{date('l, d F Y')}}</p>
         <br>
         <br>
         <p>Admin<br>

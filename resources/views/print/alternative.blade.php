@@ -68,9 +68,9 @@
   <div class="container">
     <!-- Header -->
     <div class="header">
-      <img src="{{ asset('logo.jpeg') }}" alt="Logo" class="logo-left">
+      <img src="{{ asset('logo.jpeg') }}" alt="Logo" class="logo-left" width="50px;" height="50px;">
       <h2>CV JASA FROM JAWA</h2>
-      <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari, Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
+      <p>Jl. Lestari Gg. Kenanga No. 2000 RT.004/RW.003, Kali Sari <br /> Pasar Rebo, Jakarta Timur, DKI Jakarta - 13790</p>
       <hr>
       <div class="title" style="text-align: center;">
         <h3 style="margin-bottom:0;"><u>DATA Alternative</u></h3>
@@ -98,7 +98,7 @@
 
     <!-- Signature -->
     <div class="signature">
-      <p>Jakrta, {{date('l, d F Y')}}</p>
+      <p>Jakarta, {{date('l, d F Y')}}</p>
       <br>
       <br>
       <p>Admin<br>
