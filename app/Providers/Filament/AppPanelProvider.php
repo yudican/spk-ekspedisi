@@ -29,6 +29,7 @@ class AppPanelProvider extends PanelProvider
             ->path('app')
             ->login()
             ->defaultThemeMode(ThemeMode::Dark)
+            ->brandLogo(asset('logo.jpeg'))
             ->colors([
                 'primary' => Color::Amber,
             ])
